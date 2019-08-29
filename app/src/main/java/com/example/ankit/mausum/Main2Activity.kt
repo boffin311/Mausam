@@ -90,10 +90,10 @@ class Main2Activity : AppCompatActivity() {
                             progress.visibility = View.INVISIBLE
                             var detailAdapter = DetailAdapter(tvDetaiArray)
                             var adapter = DetailAdapter(tvArrayList)
-                            with(rvfutureWeather) {
-                                layoutManager = LinearLayoutManager(baseContext, LinearLayoutManager.HORIZONTAL, false)
-                                adapter = detailAdapter
-                            }
+//                            with(rvfutureWeather) {
+                                rvfutureWeather.layoutManager = LinearLayoutManager(baseContext, LinearLayoutManager.HORIZONTAL, false)
+                                rvfutureWeather.adapter = detailAdapter
+//                            }
 
                             rvfutureWeather2.layoutManager = LinearLayoutManager(baseContext, LinearLayoutManager.HORIZONTAL, false)
                             rvfutureWeather2.adapter = adapter

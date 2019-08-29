@@ -155,10 +155,11 @@ public static final String TAG="CHK";
                             progress.setVisibility(View.INVISIBLE);
                             DetailAdapter detailAdapter = new DetailAdapter(tvDetaiArray);
                             DetailAdapter adapter = new DetailAdapter(tvArrayList);
-                            rvFutureWeather.setLayoutManager(new LinearLayoutManager(getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
-                            rvFutureWeather.setAdapter(detailAdapter);
-                            rvFutureWeather2.setLayoutManager(new LinearLayoutManager(getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
-                            rvFutureWeather2.setAdapter(adapter);
+                            Log.d(TAG, "run111: "+tvArrayList.get(0));
+//                            rvFutureWeather.setLayoutManager(new LinearLayoutManager(getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
+//                            rvFutureWeather.setAdapter(detailAdapter);
+//                            rvFutureWeather2.setLayoutManager(new LinearLayoutManager(getBaseContext(), LinearLayoutManager.HORIZONTAL, false));
+//                            rvFutureWeather2.setAdapter(adapter);
 
                             int hours = Calendar.getInstance().get(Calendar.HOUR);
                             int minutes = Calendar.getInstance().get(Calendar.MINUTE);

@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_content"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -25,8 +25,8 @@
 
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="@string/app_name">
-        </android.support.v7.widget.Toolbar>
+            app:title="@string/app_name"></android.support.v7.widget.Toolbar>
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -35,42 +35,46 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title="@string/app_name">
+
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="5dp"
-                android:elevation="2dp"
                 android:layout_marginRight="20dp"
-                android:layout_weight="1">
-<ProgressBar
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="right"
-    android:id="@+id/progress"
-    android:progressTint="#a4a0a0"
-    android:visibility="invisible"/>
-           <SearchView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:id="@+id/search"
-               android:theme="@style/SearchView"
-               android:focusedByDefault="false"
-               android:queryHint="Search"
-               android:searchHintIcon="@drawable/ic_search_black">
+                android:layout_weight="1"
+                android:elevation="2dp"
+                app:cardCornerRadius="5dp">
 
-           </SearchView>
-                  </android.support.v7.widget.CardView>
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:progressTint="#a4a0a0"
+                    android:visibility="invisible" />
+
+                <SearchView
+                    android:id="@+id/search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusedByDefault="false"
+                    android:queryHint="Search"
+                    android:searchHintIcon="@drawable/ic_search_black"
+                    android:theme="@style/SearchView">
+
+                </SearchView>
+            </android.support.v7.widget.CardView>
 
         </android.support.v7.widget.Toolbar>
 
 
     </android.support.design.widget.AppBarLayout>
+
     <LinearLayout
+        android:id="@+id/initialLinear"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
         android:gravity="center"
-        android:id="@+id/initialLinear">
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="80dp"
@@ -78,201 +82,217 @@
             android:layout_gravity="center"
             android:layout_marginTop="-100dp"
             android:src="@drawable/ic_signal_cellular_connected_no_internet" />
+
         <TextView
             android:layout_width="match_parent"
-            android:textSize="18dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:gravity="center"
             android:text="No Internet Connection"
             android:textColor="#000"
-            android:textStyle="bold"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
         <TextView
             android:layout_width="match_parent"
-            android:textSize="18dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:gravity="center"
             android:text="Check your mobile data or wifi and Retry when your connextion come back"
             android:textColor="#000"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            android:textSize="18dp" />
+
         <Button
+            android:id="@+id/btnRetry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Retry"
-            android:id="@+id/btnRetry"
+            android:layout_marginTop="15dp"
             android:background="#1f000000"
-            android:layout_marginTop="15dp"/>
+            android:text="Retry" />
 
     </LinearLayout>
-<ScrollView
-    android:layout_width="match_parent"
-    android:backgroundTint="#FFF"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FFF">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:id="@+id/linear"
-android:background="#3d3b3b"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
 
             <LinearLayout
+                android:id="@+id/linear"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:background="#3d3b3b"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="7dp"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                        android:textColor="#FFF"
+
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/tvMonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                        android:textColor="#FFF"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/tvHours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="right"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                        android:textColor="#FFF"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text=":"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                        android:textColor="#FFF"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:id="@+id/tvMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                        android:textColor="#FFF"
+                        android:textSize="25dp" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tvDate"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvDay"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:padding="7dp"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
                     android:textColor="#FFF"
-
                     android:textSize="25dp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="25dp"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-                    android:id="@+id/tvMonth"
-                    android:textColor="#FFF"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="25dp"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-                    android:textColor="#FFF"
-                    android:id="@+id/tvHours"
-                    android:gravity="right"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
 
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-                    android:gravity="center"
-                    android:textColor="#FFF"
-                    android:text=":"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4">
+
+                        <TextView
+                            android:id="@+id/tvTemp"
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="match_parent"
+                            android:fontFamily="sans-serif-light"
+                            android:textColor="#FFF"
+                            android:textSize="100dp" />
+
+                        <TextView
+                            android:id="@+id/tvDegree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:paddingTop="15dp"
+                            android:textColor="#FFF"
+                            android:textSize="35dp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/imageWeather"
+                        android:layout_width="0dp"
+                        android:layout_height="120dp"
+                        android:layout_weight="3"
+                        android:padding="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-                    android:textColor="#FFF"
-                    android:id="@+id/tvMin"
-                    />
+                    android:layout_marginLeft="10dp">
+
+                    <TextView
+                        android:id="@+id/tvLocation"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:textColor="#FFF"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/tvmain"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:textColor="#FFF"
+                        android:textSize="20dp" />
+                </LinearLayout>
             </LinearLayout>
-            <TextView
+
+            <LinearLayout
+                android:id="@+id/lastLinear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#FFF"
-                android:textSize="25dp"
-                android:layout_marginLeft="10dp"
-                android:id="@+id/tvDay"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-                android:padding="7dp"
-                />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="4"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:textColor="#FFF"
+                android:background="#4e4b4b"
+                android:elevation="2dp"
+                android:orientation="vertical">
 
-                        android:fontFamily="sans-serif-light"
-                        android:id="@+id/tvTemp"
-                        android:textSize="100dp"
-                        android:layout_height="match_parent" />
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvFuture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:paddingTop="15dp"
-                        android:textColor="#FFF"
-                        android:textSize="35dp"
-                        android:id="@+id/tvDegree"
-                        android:layout_height="match_parent"
-                        />
-                </LinearLayout>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:padding="10dp"
-                    android:layout_weight="3"
-                    android:id="@+id/imageWeather"
-                    android:layout_height="120dp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:id="@+id/tvLocation"
-                    android:textColor="#FFF"
-                    android:textSize="20dp"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:textSize="20dp"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:textSize="20dp"
-                    android:textColor="#FFF"
-                    android:gravity="center"
-                    android:id="@+id/tvmain"
-                    android:layout_height="match_parent" />
+                </android.support.v7.widget.RecyclerView>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvfutureWeather"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvfutureWeather2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                </android.support.v7.widget.RecyclerView>
             </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:elevation="2dp"
-            android:background="#4e4b4b"
-            android:id="@+id/lastLinear">
-           <android.support.v7.widget.RecyclerView
-               android:layout_width="match_parent"
-               android:id="@+id/rvFuture"
-               android:layout_height="wrap_content">
-
-           </android.support.v7.widget.RecyclerView>
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvfutureWeather"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </android.support.v7.widget.RecyclerView>
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvfutureWeather2"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </android.support.v7.widget.RecyclerView>
-        </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>

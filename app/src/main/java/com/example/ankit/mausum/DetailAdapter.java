@@ -3,6 +3,7 @@ package com.example.ankit.mausum;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.Myholder> {
     ArrayList<tvSettingList> arrayList;
-
+public static final String TAG="DA";
     public DetailAdapter(ArrayList<tvSettingList> arrayList) {
         this.arrayList = arrayList;
     }
@@ -27,6 +28,7 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.Myholder> 
     @Override
     public void onBindViewHolder(@NonNull Myholder holder, int position) {
      holder.tvMainName.setText(arrayList.get(position).getTopic());
+        Log.d(TAG, "onBindViewHolder: "+arrayList.get(position).getTopic());
      holder.tvSubMainName.setText(String.valueOf(arrayList.get(position).getValue()));
     }
 
